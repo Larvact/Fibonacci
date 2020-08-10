@@ -5,33 +5,33 @@ import java.util.List;
 
 public class Fibonacci {
 
-    private List<Integer> fibonacciSequence;
-    private long fibonacciNumberUpperBound;
+    private List<Integer> sequence;
+    private long numberUpperBound;
 
-    public Fibonacci(long fibonacciNumberUpperBound) {
-        setFibonacciSequence(fibonacciNumberUpperBound);
+    public Fibonacci(long numberUpperBound) {
+        setSequence(numberUpperBound);
     }
 
-    public List<Integer> getFibonacciSequence() {
-        return fibonacciSequence;
+    public List<Integer> getSequence() {
+        return sequence;
     }
 
-    public void setFibonacciSequence(long numberUpperBound) {
+    public void setSequence(long numberUpperBound) {
         if(numberUpperBound < 1){
             throw new IllegalArgumentException("the number upperbound for a Fibonacci Sequence element must be greater than 0");
         }
-        this.fibonacciNumberUpperBound = numberUpperBound;
-        this.setFibonacciSequence();
+        this.numberUpperBound = numberUpperBound;
+        this.setSequence();
     }
 
     public long getNext(){
-        int numberBeforeLast = fibonacciSequence.get(fibonacciSequence.size() - 2);
-        int lastNumber = fibonacciSequence.get(fibonacciSequence.size() - 1);
+        int numberBeforeLast = sequence.get(sequence.size() - 2);
+        int lastNumber = sequence.get(sequence.size() - 1);
         return numberBeforeLast + lastNumber;
     }
     public long getSum(){
         long sum = 0;
-        for(long number : fibonacciSequence){
+        for(long number : sequence){
             sum += number;
         }
         return sum;
@@ -40,29 +40,29 @@ public class Fibonacci {
     @Override
     public String toString() {
         StringBuilder sequenceBuilder = new StringBuilder();
-        sequenceBuilder.append("The Fibonacci Sequence is : ");
-        sequenceBuilder.append(fibonacciSequence.get(0));
-        for(int index = 1; index < fibonacciSequence.size(); index++){
-            sequenceBuilder.append(", ").append(fibonacciSequence.get(index));
+        sequenceBuilder.append("The Fibonacci Sequence is: ");
+        sequenceBuilder.append(sequence.get(0));
+        for(int index = 1; index < sequence.size(); index++){
+            sequenceBuilder.append(", ").append(sequence.get(index));
         }
         return sequenceBuilder.toString();
     }
 
-    private void setFibonacciSequence() {
-        initialiseFibonacciSequence();
+    private void setSequence() {
+        initialiseSequence();
         int newNumberEntry = 1 + 1;
-        while (newNumberEntry < fibonacciNumberUpperBound){
-            fibonacciSequence.add(newNumberEntry);
-            int numberBeforeLast = fibonacciSequence.get(fibonacciSequence.size() - 2);
-            int lastNumber = fibonacciSequence.get(fibonacciSequence.size() - 1);
+        while (newNumberEntry < numberUpperBound){
+            sequence.add(newNumberEntry);
+            int numberBeforeLast = sequence.get(sequence.size() - 2);
+            int lastNumber = sequence.get(sequence.size() - 1);
             newNumberEntry = numberBeforeLast + lastNumber;
         }
     }
-    private void initialiseFibonacciSequence(){
+    private void initialiseSequence(){
         int firstNumber = 1;
         int secondNumber = 1;
-        fibonacciSequence = new ArrayList<>();
-        fibonacciSequence.add(firstNumber);
-        fibonacciSequence.add(secondNumber);
+        sequence = new ArrayList<>();
+        sequence.add(firstNumber);
+        sequence.add(secondNumber);
     }
 }

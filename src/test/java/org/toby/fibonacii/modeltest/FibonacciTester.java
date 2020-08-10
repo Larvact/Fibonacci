@@ -23,12 +23,12 @@ public class FibonacciTester {
 
     @Test
     public void ensureFibonacciListIsTheCorrectSize(){
-        Assert.assertEquals(sizeOfFibonacciSequence, fibonacci.getFibonacciSequence().size());
+        Assert.assertEquals(sizeOfFibonacciSequence, fibonacci.getSequence().size());
     }
 
     @Test
     public void ensureFibonacciListIsCorrectForSize10(){
-        Assert.assertEquals(first10FibonacciNumbers, fibonacci.getFibonacciSequence());
+        Assert.assertEquals(first10FibonacciNumbers, fibonacci.getSequence());
     }
 
     @Test
